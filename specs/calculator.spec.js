@@ -8,6 +8,11 @@ describe('Calculator 100% coverage', () => {
     a      | op     | b      | expected
     ${2}   | ${'*'} | ${2}   | ${4}
     ${2}   | ${'&'} | ${2}   | ${'error'}
+    ${'A'} | ${'&'} | ${2}   | ${'error'}
+    ${2} | ${'&'} | ${'#'} | ${'error'}
+    ${10}  | ${'+'} | ${2}   | ${12}
+    ${10}  | ${'-'} | ${2}   | ${8}
+    ${10}  | ${'/'} | ${2}   | ${5}
   `('$a $op $b = $expected', ({ a, op, b, expected }) => {
     if (expected === 'error') {
       expect(() => calculator(a, op, b)).toThrow();
